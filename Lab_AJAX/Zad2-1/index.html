@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+  <head>
+    <title>Patryk Wo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+<script type="text/javascript">
+    
+function getXMLHttpRequest() //wynikiem funkcji jest stworzony obiekt do komunikacji asynchronicznej lub wartosc false
+{
+    var request = false;
+    
+    try {
+        /*
+	 * Przeglądarki: Firefox 2, Opera 9, IE 7
+	 */
+        request = new XMLHttpRequest();//tworzenie obiektu do komunikacji asynchronicznej
+    } catch(err1) {
+        try {
+            /*
+             * Przeglądarka: IE 6
+             */
+            request = new ActiveXObject('Msxml2.XMLHTTP');
+        } catch(err2) {
+            try {
+                /*
+                 * Przeglądarka: IE 5
+                 */
+                request = new ActiveXObject('Microsoft.XMLHTTP');                
+            } catch(err3) {
+                request = false;
+            }
+        }
+    }
+    return request;
+}    
+
+var r;
+
+r = getXMLHttpRequest();   
+
+function processResponse() //funkcja odpowiedzialna za odebranie danych z serwera
+{
+    if (r.readyState == 4) {
+        if (r.status == 200) { //status 404 - strona nie zostala znaleziona, status 204 - brak komunikacji, 205 - zresetowanie komunikacji, 400 - zle żądanie 
+            alert('Strona zmodyfikowana przez: ' + r.responseText); //odpowiedz pochodzaca z serwera
+        };
+    };
+}
+
+r.open('GET', 'zmiana.txt', true); //przygotowanie żadania HTTP do serwera
+r.onreadystatechange = processResponse; //dłuży do odebrania wyników z serwera
+r.send(null); //wysłanie żadania HTTP do serwera
+        
+    </script>
+    
+  </head>
+<body>
+
+</body>
+</html>

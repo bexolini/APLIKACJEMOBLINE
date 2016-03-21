@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+  <head>
+    <title>4.2 Patryk Wor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <style type="text/css">
+    .tresc {
+        width: 300px;
+        border: 1px solid black;
+        padding: 10px;
+        background: #e8fff1;        
+        margin: 10px;
+    }
+    .minitresc {
+        display: none;
+        padding: 5px;
+    }
+    a {
+        width: 20px;
+        font-family: "Courier New", monospace;
+        text-decoration: none;
+    }
+    </style>
+    
+<script type="text/javascript">
+
+function expandCollapse(Id, Number)
+{
+    var n = Id.parentNode.childNodes[2]; //zmienna n odnosci sie do obiektu DOM, wewnetrznego elementu div przeznaczonego na tresc
+    if (n.style.display == 'block') {
+        n.style.display = 'none';        //ukrycie zawartosci pojemnika
+        Id.innerHTML = '+';
+    } else {
+        n.style.display = 'block'; //otworzenie zawartosci pojemnika
+		if(Number == 1) n.innerHTML = "Patryk";
+		if(Number == 2) n.innerHTML = "Wor";
+		if(Number == 3) n.innerHTML = "22 lata";
+		if(Number == 4) n.innerHTML = "Akademina Marynarki Wojennej";
+		if(Number == 5) n.innerHTML = "Informatyka";
+		if(Number == 6) n.innerHTML = "135nciB";
+        //n.innerHTML = 'A B C...';
+        Id.innerHTML = '-';        
+    }
+}
+
+</script>    
+    
+    
+  </head>
+<body>
+
+<div class="tresc"><a href="#" onclick="expandCollapse(this, 1);">+</a><span>Imie</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this, 2);">+</a><span>Nazwisko</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this, 3);">+</a><span>Wiek</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this, 4);">+</a><span>Uczelnika</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this, 5);">+</a><span>Kierunek</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this, 6);">+</a><span>Grupa</span><div></div></div>
+
+</body>
+</html>

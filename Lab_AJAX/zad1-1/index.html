@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+  <head>
+    <title>Patryk Wor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+<script type="text/javascript">
+    
+function getXMLHttpRequest() //wynikiem funkcji jest stworzony obiekt do komunikacji asynchronicznej lub wartosc false
+{
+    var request = false;
+    
+    try {
+        /*
+	 * Przeglądarki: Firefox 2, Opera 9, IE 7
+	 */
+        request = new XMLHttpRequest(); //tworzenie obiektu do komunikacji asynchronicznej 
+        alert('135nciWorp');        
+    } catch(err1) {
+        alert(err1.description);            
+        try {
+            /*
+             * Przeglądarka: IE 6
+             */
+            request = new ActiveXObject('Msxml2.XMLHTTP');
+            alert('135nciWorp');                                    
+        } catch(err2) {
+            alert(err2.description);        
+            try {
+                /*
+                 * Przeglądarka: IE 5
+                 */
+                request = new ActiveXObject('Microsoft.XMLHTTP');                
+                alert('135nciWorp');                                                                
+            } catch(err3) {
+                alert(err3.description);                    
+                request = false;
+            }
+        }
+    }
+    return request;
+}    
+
+var r;
+
+r = getXMLHttpRequest();    //wysyłanie zapytań protokołem HTTP do serwera WWW przez obiekt r
+      
+</script>
+    
+  </head>
+<body>
+
+</body>
+</html>
